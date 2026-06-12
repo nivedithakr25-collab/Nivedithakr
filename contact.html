@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact VelocityStride running shoes – Instagram, email, LinkedIn, and get in touch for performance inquiries.">
+  <title>VelocityStride | Contact & Social Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #1e1e2a;
+      line-height: 1.5;
+    }
+
+    /* skip link accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #ff6b2c;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 200;
+    }
+    .skip-link:focus {
+      top: 0;
+      outline: 3px solid #facc15;
+    }
+
+    /* sticky navigation */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid #eee;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff6b2c, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .sticky-nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #2c2f3a;
+      padding: 0.4rem 0;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    .sticky-nav a:hover, .sticky-nav a:focus {
+      color: #ff6b2c;
+      border-bottom-color: #ff6b2c;
+      outline: none;
+    }
+    .nav-links a.active {
+      color: #ff6b2c;
+      border-bottom-color: #ff6b2c;
+    }
+
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .contact-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e2a3a, #ff6b2c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .contact-header p {
+      font-size: 1.2rem;
+      color: #4a4a5a;
+    }
+
+    /* main flex layout: contact info (socials, email, linkedin) + form */
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin: 2rem 0 3rem;
+    }
+    .contact-details {
+      flex: 1;
+      min-width: 260px;
+      background: #fefaf7;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f0e2d8;
+    }
+    .contact-details h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid #ff6b2c;
+      padding-left: 1rem;
+    }
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      background: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .social-item:hover {
+      transform: translateX(6px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+    .social-icon {
+      font-size: 1.8rem;
+    }
+    .social-info a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #ff6b2c;
+      word-break: break-all;
+    }
+    .social-info a:hover, .social-info a:focus {
+      text-decoration: underline;
+      outline: none;
+      color: #b34100;
+    }
+    .social-info p {
+      font-size: 0.8rem;
+      color: #6b6b7a;
+    }
+    .email-block, .linkedin-block {
+      margin-top: 1rem;
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1rem;
+    }
+
+    /* contact form styling */
+    .contact-form {
+      flex: 1.2;
+      min-width: 280px;
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e9dfd7;
+    }
+    .contact-form h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #1e2a3a;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #2d2f3a;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid #ddd2c8;
+      font-family: inherit;
+      transition: 0.2s;
+      background: #fefdfb;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #ff6b2c;
+      box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.2);
+    }
+    .radio-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 0.3rem;
+    }
+    .radio-group label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: normal;
+    }
+    .form-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .btn-submit {
+      background: #ff6b2c;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-submit:hover, .btn-submit:focus {
+      background: #e05518;
+      transform: scale(1.02);
+      outline: 2px solid #ffb347;
+    }
+    .btn-reset {
+      background: #e2e8f0;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn-reset:hover {
+      background: #cbd5e1;
+    }
+
+    /* extra social section with instagram feed-like (inline social links) */
+    .social-handles {
+      background: #1e1e2a;
+      border-radius: 2rem;
+      padding: 1.8rem;
+      margin: 2rem 0;
+      text-align: center;
+      color: white;
+    }
+    .social-handles h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .handle-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+    .handle-link {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.6rem 1.3rem;
+      border-radius: 60px;
+      text-decoration: none;
+      color: #ffb347;
+      font-weight: 600;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .handle-link:hover, .handle-link:focus {
+      background: #ff6b2c;
+      color: white;
+      outline: none;
+      transform: scale(1.02);
+    }
+
+    /* back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #ff6b2c;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
+      z-index: 98;
+    }
+    .back-to-top:hover, .back-to-top:focus {
+      background: #e05518;
+      outline: 2px solid #ffb347;
+      transform: scale(1.02);
+    }
+
+    footer {
+      background: #0f0f12;
+      color: #aaa;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: #ff6b2c;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .sticky-nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .contact-header h1 {
+        font-size: 2.2rem;
+      }
+      .contact-grid {
+        flex-direction: column;
+      }
+      .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #ff6b2c;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main-contact" class="skip-link">Skip to contact info & form</a>
+
+<nav class="sticky-nav">
+  <div class="logo">VELOCITYSTRIDE</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#" class="active">Contact</a>
+  </div>
+</nav>
+
+<main id="main-contact">
+  <div class="contact-header">
+    <h1>Let’s Connect</h1>
+    <p>Follow, message, or reach out — we’re here to help you stride faster.</p>
+  </div>
+
+  <!-- Grid: left side (contact info like Insta, email, LinkedIn) + right side form -->
+  <div class="contact-grid">
+    <!-- Contact details: instagram, email, linkedin, github, other -->
+    <div class="contact-details">
+      <h2>📱 Social & Direct</h2>
+      
+      <!-- Instagram -->
+      <div class="social-item">
+        <div class="social-icon">📷</div>
+        <div class="social-info">
+          <a href="https://instagram.com/velocitystride" target="_blank" rel="noopener noreferrer">@velocitystride</a>
+          <p>Instagram • Daily running tips & drops</p>
+        </div>
+      </div>
+
+      <!-- Email (professional) -->
+      <div class="social-item">
+        <div class="social-icon">✉️</div>
+        <div class="social-info">
+          <a href="mailto:hello@velocitystride.com">hello@velocitystride.com</a>
+          <p>24h response for support & collaboration</p>
+        </div>
+      </div>
+
+      <!-- LinkedIn (company page) -->
+      <div class="social-item">
+        <div class="social-icon">🔗</div>
+        <div class="social-info">
+          <a href="https://linkedin.com/company/velocitystride" target="_blank" rel="noopener noreferrer">VelocityStride on LinkedIn</a>
+          <p>Corporate updates, careers, partnerships</p>
+        </div>
+      </div>
+
+      <!-- Additional contact: X / Twitter -->
+      <div class="social-item">
+        <div class="social-icon">🐦</div>
+        <div class="social-info">
+          <a href="https://twitter.com/velocitystride" target="_blank" rel="noopener noreferrer">@velocitystride</a>
+          <p>Race news & community highlights</p>
+        </div>
+      </div>
+      
+      <!-- GitHub (developer / open source projects) -->
+      <div class="social-item">
+        <div class="social-icon">💻</div>
+        <div class="social-info">
+          <a href="https://github.com/velocitystride" target="_blank" rel="noopener noreferrer">github.com/velocitystride</a>
+          <p>Open-source running analytics tools</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form (with required fields, dropdown, radio, checkbox, reset/submit) -->
+    <div class="contact-form">
+      <h2>✍️ Send a message</h2>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Full name *</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address *</label>
+          <input type="email" id="email" name="email" required placeholder="Your gmail">
+        </div>
+        <div class="form-group">
+          <label for="inquiry">Inquiry type</label>
+          <select id="inquiry" name="inquiry">
+            <option value="product">Product support</option>
+            <option value="partnership">Partnership / Sponsorship</option>
+            <option value="feedback">Shoe feedback</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- Radio buttons (preferred contact method) -->
+        <div class="form-group">
+          <label>Preferred contact method</label>
+          <div class="radio-group">
+            <label><input type="radio" name="contact_method" value="email"> Email</label>
+            <label><input type="radio" name="contact_method" value="instagram"> Instagram DM</label>
+            <label><input type="radio" name="contact_method" value="linkedin"> LinkedIn</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us about your running experience or question..."></textarea>
+        </div>
+
+        <!-- Newsletter checkbox -->
+        <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 0.6rem; font-weight: normal;">
+            <input type="checkbox" name="newsletter" value="yes"> Subscribe to VelocityStride newsletter (running tips & offers)
+          </label>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" class="btn-submit">Send message ➤</button>
+          <button type="reset" class="btn-reset">Clear form</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Extra social handles showcase (Instagram, LinkedIn, GitHub etc) with quick links -->
+  <div class="social-handles">
+    <h3>⚡ Follow our journey</h3>
+    <div class="handle-buttons">
+      <a href="https://instagram.com/velocitystride" class="handle-link" target="_blank">📷 Instagram</a>
+      <a href="https://linkedin.com/company/velocitystride" class="handle-link" target="_blank">🔗 LinkedIn</a>
+      <a href="https://twitter.com/velocitystride" class="handle-link" target="_blank">🐦 X (Twitter)</a>
+      <a href="https://github.com/velocitystride" class="handle-link" target="_blank">💻 GitHub</a>
+      <a href="mailto:your@gmail.com" class="handle-link">✉️ Email Direct</a>
+    </div>
+    <p style="margin-top: 1.2rem; font-size: 0.85rem;">📍 HQ: Bengaluru, India | support hours: 9AM–9PM IST</p>
+  </div>
+  
+  <!-- simple contact summary: email & social again for clarity -->
+  <div style="background: #fff4ed; border-radius: 1.5rem; padding: 1.2rem; text-align: center; margin-top: 1rem;">
+    <p>📩 For collaborations or bulk inquiries: <strong>partner@velocitystride.com</strong>  |  DM us on Instagram for quick replies.</p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 VelocityStride — Run with purpose. Connect with us anytime.</p>
+  <p><a href="#">Privacy</a> | <a href="#">Accessibility</a> | <a href="#">Contact</a></p>
+</footer>
+
+<a href="#" class="back-to-top" aria-label="Back to top">⬆ Top</a>
+
+</body>
+</html>
