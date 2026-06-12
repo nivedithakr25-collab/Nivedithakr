@@ -1,0 +1,295 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Niveditha K R - Instrumentation Engineer & Web Developer showcasing projects and skills.">
+    <title>Niveditha K R | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f9fafc;
+            color: #1e293b;
+        }
+
+        /* Skip to main content link - accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #0f172a;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid #facc15;
+        }
+
+        /* Sticky Navigation Bar */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: #0f172a;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            z-index: 99;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .sticky-nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .sticky-nav a:hover, .sticky-nav a:focus {
+            background-color: #facc15;
+            color: #0f172a;
+            outline: none;
+        }
+        .sticky-nav a.active {
+            background-color: #facc15;
+            color: #0f172a;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            min-height: 60vh;
+            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 32px;
+            margin-bottom: 3rem;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-content h1 {
+            font-size: 5vw;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #334155;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.2);
+            border: 4px solid #facc15;
+        }
+
+        /* Featured Projects Section (Flex cards) */
+        .featured-projects h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid #facc15;
+            padding-left: 1rem;
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 0;
+            width: 280px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid #e2e8f0;
+        }
+        .card:hover, .card:focus-within {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15);
+        }
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        .card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .tech-badge {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            margin-top: 0.75rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Back to Top Fixed Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #facc15;
+            color: #0f172a;
+            padding: 0.75rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s;
+            z-index: 98;
+        }
+        .back-to-top:hover, .back-to-top:focus {
+            background: #eab308;
+            outline: 2px solid #0f172a;
+            transform: scale(1.02);
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        footer a {
+            color: #facc15;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Query Responsive */
+        @media (max-width: 768px) {
+            .sticky-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.8rem;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                min-height: auto;
+            }
+            .hero-content h1 {
+                font-size: 8vw;
+            }
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.5rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="sticky-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Niveditha K R</h1>
+                <p>Instrumentation Engineer & Web Developer</p>
+                <p style="margin-top: 1rem;">Building smart robotics and creative web solutions.</p>
+            </div>
+            <div class="hero-image">
+                <!-- profile image placeholder from picsum -->
+                <img src="https://picsum.photos/id/26/300/300" alt="Niveditha's profile portrait, nature landscape style placeholder" width="300" height="300">
+            </div>
+        </section>
+
+        <!-- Featured Projects Section (flex cards) -->
+        <section class="featured-projects">
+            <h2>Featured Projects</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_jQtsoCK1rqKT8o03y_SLDGYc_G4ZdA71Ag&s" alt="Line follower robot project preview">
+                    <h3>Line Follower</h3>
+                    <p>A robot designed to follow the line using IR sensors and PID control.</p>
+                    <span class="tech-badge">Arduino</span>
+                    <span class="tech-badge">Sensors</span>
+                    <span class="tech-badge">C++</span>
+                </div>
+                <div class="card">
+                    <img src="https://technostacks.com/wp-content/uploads/2020/06/smart-home-automation-using-iot-scaled.jpg" alt="ESP32 home automation preview">
+                    <h3>ESP32 Home Automation</h3>
+                    <p>Home Automation system using ESP32 and IoT </p>
+                    <span class="tech-badge">ESP32</span>
+                    <span class="tech-badge">IoT</span>
+                    <span class="tech-badge">C++</span>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/id/91/300/200" alt="Portfolio website preview">
+                    <h3>Personal Portfolio</h3>
+                    <p>Created webpages for my own portfolio using HTML/CSS and flexbox.</p>
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">Flexbox</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Niveditha K R | Instrumentation Engineer & Web Developer</p>
+        <p><a href="contact.html">Get in touch</a></p>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Back to top">⬆ Top</a>
+</body>
+</html>
